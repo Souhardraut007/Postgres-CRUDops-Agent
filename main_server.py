@@ -1,5 +1,3 @@
-# main_server.py
-
 from fastmcp.server import FastMCP
 from tools.postgres_tools import (
     create_user,
