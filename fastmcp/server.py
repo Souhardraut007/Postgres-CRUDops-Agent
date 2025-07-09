@@ -1,5 +1,3 @@
-# fastmcp/server.py
-
 from fastapi import FastAPI
 from typing import Callable, List
 from pydantic import BaseModel
