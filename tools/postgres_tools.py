@@ -1,9 +1,6 @@
-# tools/postgres_tools.py
-
 import psycopg2
 from langchain_core.tools import tool
 
-# ✅ UPDATE these credentials with your PostgreSQL DB login
 try:
     conn = psycopg2.connect(
         host="localhost",
