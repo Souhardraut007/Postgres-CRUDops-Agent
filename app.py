@@ -1,18 +1,14 @@
 import streamlit as st
 import requests
 
-# MCP backend URL
 API_URL = "http://localhost:8000/query"
 
-# Title
 st.set_page_config(page_title="PostgreSQL CRUD App", layout="centered")
 st.title("🧠 PostgreSQL CRUD App via MCP + Streamlit")
 
-# Sidebar options
 st.sidebar.header("Choose Operation")
 operation = st.sidebar.radio("Select", ["Create User", "Read Users", "Update Email", "Delete User"])
 
-# ➕ CREATE
 if operation == "Create User":
     st.subheader("Create a New User")
     name = st.text_input("Enter Name")
@@ -27,8 +23,7 @@ if operation == "Create User":
         }
         response = requests.post(API_URL, json=payload)
         st.success(response.json())
-
-# 📖 READ
+        
 elif operation == "Read Users":
     st.subheader("List of Users")
     if st.button("Fetch Users"):
@@ -43,7 +38,6 @@ elif operation == "Read Users":
         else:
             st.warning("No data found.")
 
-# ✏️ UPDATE
 elif operation == "Update Email":
     st.subheader("Update User Email")
     user_id = st.number_input("User ID", step=1, min_value=1)
@@ -59,7 +53,6 @@ elif operation == "Update Email":
         response = requests.post(API_URL, json=payload)
         st.success(response.json())
 
-# ❌ DELETE
 elif operation == "Delete User":
     st.subheader("Delete a User")
     user_id = st.number_input("User ID", step=1, min_value=1)
